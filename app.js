@@ -4,6 +4,7 @@ const connectDB = require("./database");
 const productsRoutes = require("./api/products/routes");
 const dotenv = require("dotenv");
 const shopsRoutes = require("./api/shops/routes");
+const signupRoutes = require("./api/user/userRoutes");
 
 dotenv.config();
 
@@ -27,6 +28,7 @@ app.use((req, res, next) => {
 // Routes
 app.use("/products", productsRoutes);
 app.use("/shops", shopsRoutes);
+app.use("/signup", signupRoutes);
 
 app.use((err, req, res, next) => {
   res.status(err.status || 500).json({
